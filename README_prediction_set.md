@@ -1,4 +1,4 @@
-# Jura Heavy Metals — Prediction Set (n=259)
+# Jura Heavy Metals — Training Set (n=259)
 
 This repository contains the **prediction (training) subset** of the classic Swiss Jura geostatistical dataset. It is primarily used for Exploratory Data Analysis (EDA), spatial interpolation training, and environmental machine learning.
 
