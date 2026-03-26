@@ -1,4 +1,4 @@
-# Jura Heavy Metals — AI-Assisted Geochemical Analysis
+# Jura Heavy Metals — Training Set Geochemical Analysis
 
 An end-to-end data science project using the classic **Swiss Jura dataset** for spatial geochemical exploration, exploratory data analysis, and machine learning-ready data preparation.
 
