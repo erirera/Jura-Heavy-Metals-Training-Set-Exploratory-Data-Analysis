@@ -1,62 +1,39 @@
-# Jura Heavy Metals — Prediction Set (n=259)
+# Jura Heavy Metals — Prediction Set EDA Dashboard
 
-This repository contains the **prediction (training) subset** of the classic Swiss Jura geostatistical dataset. It is primarily used for Exploratory Data Analysis (EDA), spatial interpolation training, and environmental machine learning.
+## Overview
 
----
+This dashboard (`index.html`) delivers a fully interactive **Exploratory Data Analysis** of the 259-sample Swiss Jura geochemical training dataset. Built as a zero-dependency, self-contained HTML file powered by **Chart.js**, it provides a complete statistical profile of 7 heavy metal contaminants before any machine learning modelling begins.
 
-## 📂 Included Files
+## Contents of This Folder
 
-| File | Description |
+| File | Purpose |
 |---|---|
-| `jura_prediction_set.csv` | The raw tabular data containing the 259 training samples. |
-| `jura_eda_dashboard.html` | An interactive HTML dashboard visualizing this specific prediction set. |
-| `gen_dashboard.py` | The Python script used to generate the dashboard from the CSV. |
+| `index.html` | Interactive EDA dashboard (open in any browser) |
+| `gen_dashboard.py` | Python generator script — re-run to rebuild `index.html` |
+| `jura_prediction_set.csv` | Source data (259 samples, 12 columns) |
+| `jura.csv` | Full raw dataset reference |
 
-*(Note: The remaining 100 samples from the original 359-sample dataset are withheld as a validation set for model testing).*
+## Dashboard Sections
 
----
+### 1. Summary Statistics (KPI Cards)
+Seven colour-coded cards display the **mean, min, max, and standard deviation** for each heavy metal (Cd, Cu, Pb, Co, Cr, Ni, Zn) at a glance.
 
-## 📊 Dataset Overview (`jura_prediction_set.csv`)
+### 2. Descriptive Statistics Table
+A full statistical table per metal: Min · Q1 · Median · Mean · Q3 · Max · Std Dev.
 
-The prediction set contains **259 geo-referenced samples**. 
+### 3. Frequency Distributions
+Individual histogram panels for each metal revealing skewness, clustering, and outlier presence across the training population.
 
-### Contextual & Spatial Variables
-- **S/N**: Unique sample ID
-- **X (km), Y (km)**: Spatial coordinates in the Swiss Jura region
-- **Rock type**: Underlying geology (1=Argovian, 2=Kimmeridgian, 3=Sequanian, 4=Portlandian, 5=Quaternary)
-- **Land use**: Surface land cover (1=Forest, 2=Pasture, 3=Meadow, 4=Tillage)
+### 4. Correlation Analysis
+- **Pearson Correlation Heatmap** (bubble chart): size and colour encode positive/negative correlation strength between all metal pairs.
+- **Metal Pair Scatter Plot**: drill-down tool for any two-metal correlation, with dropdown selectors.
 
-### Target Variables (Heavy Metals)
-Concentrations (in ppm) of 7 heavy metals measured at each location:
-- **Cd**: Cadmium
-- **Cu**: Copper
-- **Pb**: Lead
-- **Co**: Cobalt
-- **Cr**: Chromium
-- **Ni**: Nickel
-- **Zn**: Zinc
+### 5. By Rock Type & Land Use
+- **Count by Rock Type** doughnut chart (ordered **youngest → oldest** per stratigraphic literature: Quaternary · Portlandian · Kimmeridgian · Sequanian · Argovian)
+- **Count by Land Use** doughnut chart (Forest · Pasture · Meadow · Tillage)
+- **Mean by Rock Type** bar chart — selectable per metal
+- **Mean by Land Use** bar chart — selectable per metal
 
----
-
-## 🗺️ Interactive EDA Dashboard
-
-To explore the data without writing code, open `jura_eda_dashboard.html` in any modern web browser (Chrome, Firefox, Edge, Safari). No local web server or installation is required—it runs entirely client-side.
-
-The dashboard includes:
-- **Summary Statistics**: Min, Max, Mean, Median, Q1/Q3, and Std Dev for all 7 metals.
-- **Frequency Distributions**: Histograms showing the concentration spread of each metal.
-- **Pearson Heatmap & Scatters**: Interactive tools to analyze the correlation between different heavy metals.
-- **Spatial Map**: Sample locations color-coded by the concentration gradient of a selected metal.
-- **Categorical Breakdown**: Mean metal concentrations grouped by Rock Type and Land Use.
-
----
-
-## 🚀 Usage & AI Applications
-
-This specific 259-sample subset is strictly intended for **training** and **exploratory analysis**. 
-
-If you are developing AI agents or geospatial models, use this data to:
-1. Understand the spatial autocorrelation of heavy metals.
-2. Train multi-output regression models predicting metal concentrations from spatial coordinates and categorical features.
-3. Develop baseline algorithms for environmental anomaly detection.
-4. Benchmark autonomous AI Agents on their ability to perform automated EDA.
+## Navigation
+- **Spatial Maps →** Opens the live WGS84 geographic map dashboard for the prediction set
+- **Validation Set →** Jumps to the equivalent EDA dashboard for the 100-sample hold-out set

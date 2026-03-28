@@ -1,24 +1,25 @@
-# LinkedIn Post (Prediction Set & EDA Focus)
+# LinkedIn Post — Prediction Set EDA Dashboard
 
 ---
 
-📊 **Mastering Exploratory Data Analysis (EDA) on Geospatial Data** 🌍
+📊 **From Raw Geochemical Data to Actionable Insight: How EDA Sets the Stage for Spatial AI**
 
-When training machine learning models on spatial data, understanding your underlying dataset is half the battle.
+Before any model trains, the data must speak. I recently completed an in-depth Exploratory Data Analysis of the classical **Swiss Jura Heavy Metals dataset** — 259 training samples, 7 contaminants (Cd, Cu, Pb, Co, Cr, Ni, Zn), and a surprisingly rich geological context.
 
-I recently took the classic **Swiss Jura dataset**—a benchmark in environmental geochemistry—and isolated a strictly controlled **Prediction Set (n=259)** to serve as my training ground.
+Rather than static plots, I built a fully **interactive EDA dashboard** (zero dependencies — pure HTML + Chart.js) that surfaces structure others overlook:
 
-Rather than jumping straight into complex spatial modeling (like Kriging or Graph Neural Networks), I built a comprehensive, interactive **EDA Dashboard** to uncover the initial spatial patterns. 
+🔬 **Statistical KPIs** — Mean, StdDev, IQR for every metal at a glance
 
-Here is what the data revealed before a single model was trained:
-🪨 **Geological Drivers**: The dashboard instantly highlighted how different rock formations (like Argovian vs. Portlandian) naturally dictate the baseline concentrations of heavy metals like Cadmium and Cobalt. 
-🌲 **Land Use Factors**: Analyzing surface features (Forest, Pasture, Tillage) provided crucial context for spatial distributions.
-🔗 **Metal Correlations**: A dynamic Pearson heatmap revealed strong multi-collinearity between specific metal pairs (like Zinc and Cadmium)—vital intel for future multi-output regression models.
+📈 **Frequency Distributions** — 15-bin histograms revealing the heavy right-skew typical of geochemical log-normal distributions (Zinc, I'm looking at you)
 
-By strictly withholding a 100-sample validation set and thoroughly analyzing this 259-sample training subset, the foundation is now set for robust, leak-free spatial AI modeling. 
+🔗 **Pearson Correlation Heatmap** — a bubble chart visual that immediately flags the strong Co-Cr-Ni triad common to mafic mineralisation signatures
 
-💡 *Takeaway: Building interactive EDA tools doesn't just make data look pretty; it's a critical step in understanding spatial autocorrelation and feature importance before letting the algorithms take over.*
+🪨 **Geological Context** — rock type and land use breakdowns, with rock formations now ordered **youngest → oldest** by stratigraphic age (Quaternary at ~2.58 Ma through to Argovian at ~166 Ma). A simple reordering, but one that immediately reveals which formations dominate the training distribution.
 
-Have you built any custom EDA tools for your geospatial or environmental datasets? I’d love to hear your approach! 👇
+The big takeaway? Pb and Cd cluster predominantly in **Portlandian and Kimmeridgian formations**, while Co and Cr are more evenly spread — a signal worth encoding into any spatial feature engineering pipeline.
 
-#GeoAI #Geoscience #DataScience #EDA #SpatialAnalysis #MachineLearning #Geochemistry #Python #DataVisualization
+This dashboard is the entry point to a 4-page interconnected geospatial analysis suite that includes live WGS84 maps, live categorical filtering, and a combined study area boundary polygon.
+
+What EDA steps do you consider non-negotiable before spatial modelling? 👇
+
+#DataScience #Geochemistry #EDA #SpatialAnalysis #MachineLearning #Python #ChartJS #GeoAI #SwissJura
