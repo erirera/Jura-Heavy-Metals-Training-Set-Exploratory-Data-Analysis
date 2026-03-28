@@ -1,1 +1,0 @@
-produce a distribution map for each of the heavy metals both for the predictive set and validation set using the provided coordinates. The predictive set maps should be grouped separately from the predictive set maps. At the end, I want them linked to the two previously generated dashboards intelligently
